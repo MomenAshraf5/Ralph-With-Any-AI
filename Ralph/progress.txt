@@ -1,0 +1,37 @@
+# Progress Log - Antigravity Autonomous Development
+
+This file tracks learnings and context across iterations. Each entry is append-only.
+
+---
+
+## Project Setup
+
+[Add initial context here - tech stack, key conventions, etc.]
+
+---
+
+<!-- Antigravity agent will append learnings below after each story completion -->
+
+## [2026-02-04] OT-001: Refine Overtime Prisma Model [Passed]
+- **Changes**: Migrated financial fields to `Decimal(10,2)` in `Overtime`, `SalaryRecord`, `Deduction`, and `Employee` models for precision. Added missing `attendance` relation to `Deduction`.
+- **Learnings**: In TypeScript, `Prisma.Decimal` objects require explicit conversion using `Number()` or `new Prisma.Decimal()` for arithmetic and assignments.
+
+## [2026-02-04] OT-002: Create Overtime API Routes and Controller [Passed]
+- **Changes**: Created `overtime.schema.ts` (Zod), `overtime.controller.ts` (CRUD), and `overtime.routes.ts`. Registered routes in `v1Router`.
+- **Endpoints**: `POST /requests`, `GET /my-requests`, `GET /all-requests`.
+- **Logic**: Implemented date normalization to UTC midnight for consistent daily tracking.
+- **Verification**: `tsc` build passed.
+
+## [2026-02-04] OT-003: Implement Overtime Approval/Rejection Logic [Passed]
+- **Changes**: Added `reviewOvertime` to controller with `Prisma.Decimal` calculations for `totalAmount`.
+- **Logic**: Prevents reviewing already processed requests. Audit trail includes reviewer ID and timestamps.
+- **Verification**: `tsc` build passed.
+
+## [2026-02-04] OT-004: Integrate Overtime with Attendance Auto-Close Job [Passed]
+- **Changes**: Modified `startOrphanCollector` in `attendance-automation.job.ts` to fetch approved OT and extend `shiftEnd` before auto-closing.
+- **Logic**: Ensures that employees working approved overtime are not prematurely clocked out by the system.
+- **Verification**: `tsc` build passed.
+
+## [2026-02-04] OT-005: Connect Overtime Pay to Salary Calculation [Passed]
+- **Changes**: Updated `recalculateSalaryRecord` in `salary.controller.ts` to aggregate approved overtime for the month and update `overtimePay` field.
+- **Verification**: `tsc` build passed. Verified integration in both `generateMonthlySalaries` and `recalculateSalaryRecord` helper.
