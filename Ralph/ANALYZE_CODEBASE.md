@@ -17,6 +17,7 @@ This is a **discovery process** - don't assume anything. Find and document what 
 Look for these indicator files and extract tech info:
 
 **JavaScript/TypeScript Projects:**
+
 - `package.json` → Read dependencies to identify:
   - Frontend: React, Vue, Angular, Svelte, Next.js, etc.
   - Backend: Express, Fastify, NestJS, Koa, etc.
@@ -26,32 +27,39 @@ Look for these indicator files and extract tech info:
   - Package manager: Check `packageManager` field or lock file (pnpm-lock.yaml, yarn.lock, package-lock.json)
 
 **Python Projects:**
+
 - `requirements.txt` or `pyproject.toml` → Identify:
   - Framework: Django, Flask, FastAPI, etc.
   - ORM: SQLAlchemy, Django ORM, etc.
   - Testing: pytest, unittest, etc.
 
 **Java Projects:**
+
 - `pom.xml` (Maven) or `build.gradle` (Gradle) → Identify:
   - Framework: Spring Boot, Jakarta EE, etc.
   - Database: JPA, Hibernate, etc.
 
 **PHP Projects:**
+
 - `composer.json` → Identify:
   - Framework: Laravel, Symfony, etc.
 
 **Go Projects:**
+
 - `go.mod` → Identify frameworks and libraries
 
 **Ruby Projects:**
+
 - `Gemfile` → Identify Rails, Sinatra, etc.
 
 **Database Detection:**
+
 - Check for: `prisma/schema.prisma`, `migrations/`, `database.sql`, etc.
 - Read connection strings from config files
 - Identify: PostgreSQL, MySQL, MongoDB, SQLite, etc.
 
 **Infrastructure:**
+
 - `Dockerfile` → Docker usage
 - `docker-compose.yml` → Multi-container setup
 - `.github/workflows/` → GitHub Actions
@@ -66,6 +74,7 @@ Look for these indicator files and extract tech info:
 Explore the entire project tree and identify:
 
 **Frontend Structure:**
+
 ```
 Where are components? (src/components, app/components, components/, etc.)
 Where are pages/routes? (src/pages, app/, pages/, routes/, etc.)
@@ -77,6 +86,7 @@ Where are assets? (public/, assets/, static/, etc.)
 ```
 
 **Backend Structure:**
+
 ```
 Where are routes? (src/routes, routes/, api/, controllers/, etc.)
 Where are controllers? (src/controllers, controllers/, handlers/, etc.)
@@ -88,6 +98,7 @@ Where are tests? (tests/, __tests__, src/__tests__, spec/, etc.)
 ```
 
 **Monorepo Detection:**
+
 ```
 Is this a monorepo? (packages/, apps/, check for lerna.json, nx.json, turbo.json)
 What workspaces exist?
@@ -103,6 +114,7 @@ How are they organized?
 **Look at actual files** to discover patterns:
 
 **Component Patterns (Frontend):**
+
 ```
 - File naming: PascalCase.tsx, kebab-case.vue, etc.
 - Component structure: Functional components? Class components?
@@ -113,6 +125,7 @@ How are they organized?
 ```
 
 **API Patterns (Backend):**
+
 ```
 - Route definition: Express router, decorators, file-based routing?
 - Request validation: Zod, Joi, class-validator, etc.
@@ -123,6 +136,7 @@ How are they organized?
 ```
 
 **Database Patterns:**
+
 ```
 - ORM/Query builder: Prisma, TypeORM, Sequelize, Knex, raw SQL?
 - Model naming: PascalCase, snake_case, etc.
@@ -132,6 +146,7 @@ How are they organized?
 ```
 
 **Testing Patterns:**
+
 ```
 - Test files location: __tests__, *.test.ts, *.spec.ts?
 - Testing library: Jest, Vitest, Mocha, pytest, JUnit?
@@ -146,6 +161,7 @@ How are they organized?
 ### Code Style & Standards
 
 **Naming Conventions:**
+
 ```
 - Variables: camelCase, snake_case?
 - Functions: camelCase, snake_case?
@@ -156,6 +172,7 @@ How are they organized?
 ```
 
 **Code Organization:**
+
 ```
 - Imports order: Built-in, external, internal?
 - Export style: Named exports, default exports?
@@ -164,6 +181,7 @@ How are they organized?
 ```
 
 **Configuration:**
+
 ```
 - ESLint/Prettier: Check .eslintrc, .prettierrc
 - TypeScript: Check tsconfig.json (strict mode? paths?)
@@ -179,6 +197,7 @@ How are they organized?
 **Explore the codebase to find what's already built:**
 
 **Authentication & Authorization:**
+
 ```
 - Login/logout system?
 - Registration?
@@ -188,6 +207,7 @@ How are they organized?
 ```
 
 **Core Modules:**
+
 ```
 - User management?
 - Dashboard?
@@ -197,6 +217,7 @@ How are they organized?
 ```
 
 **Domain-Specific Features:**
+
 ```
 What is this app about? E-commerce? CRM? ERP? SaaS?
 What features already exist?
@@ -210,6 +231,7 @@ What models/entities are in the database?
 ### External Services & APIs
 
 **Check for integrations:**
+
 ```
 - Payment gateways? (Stripe, PayPal, etc.)
 - Email services? (SendGrid, AWS SES, etc.)
@@ -228,6 +250,7 @@ What models/entities are in the database?
 **Document how things work:**
 
 **Commands:**
+
 ```bash
 # Find from package.json scripts or Makefile
 How to start dev server?
@@ -239,6 +262,7 @@ How to run migrations?
 ```
 
 **Environment Setup:**
+
 ```
 What .env variables are needed?
 Where is example .env file?
@@ -246,6 +270,7 @@ How is configuration managed?
 ```
 
 **Deployment:**
+
 ```
 How is the app deployed?
 What platforms? (Vercel, AWS, Heroku, etc.)
@@ -256,7 +281,7 @@ CI/CD pipeline? (GitHub Actions, GitLab CI, etc.)
 
 ## Output Format: CODEBASE_ANALYSIS.md
 
-Create a file with this exact structure:
+Create a file `Ralph/CODEBASE_ANALYSIS.md` with this exact structure:
 
 ```markdown
 # Codebase Analysis
@@ -269,11 +294,13 @@ Create a file with this exact structure:
 ## Technology Stack
 
 ### Core Technologies
+
 - **Language:** [JavaScript/TypeScript/Python/Java/etc.]
 - **Runtime/Platform:** [Node.js 20.x / Python 3.11 / JVM 17 / etc.]
 - **Package Manager:** [pnpm / npm / yarn / pip / maven / etc.]
 
 ### Frontend (if applicable)
+
 - **Framework:** [React 19 / Vue 3 / Angular / Svelte / etc.]
 - **Build Tool:** [Vite / Webpack / Next.js / etc.]
 - **UI Library:** [Radix UI / Material-UI / Ant Design / etc.]
@@ -284,6 +311,7 @@ Create a file with this exact structure:
 - **Validation:** [Zod / Yup / etc.]
 
 ### Backend (if applicable)
+
 - **Framework:** [Express / NestJS / FastAPI / Spring Boot / etc.]
 - **Database:** [PostgreSQL / MySQL / MongoDB / etc.]
 - **ORM/Query Builder:** [Prisma / TypeORM / Sequelize / etc.]
@@ -291,10 +319,12 @@ Create a file with this exact structure:
 - **Validation:** [Zod / class-validator / etc.]
 
 ### Testing
+
 - **Test Framework:** [Jest / Vitest / pytest / JUnit / etc.]
 - **E2E Testing:** [Playwright / Cypress / none]
 
 ### DevOps
+
 - **Containerization:** [Docker / none]
 - **CI/CD:** [GitHub Actions / GitLab CI / none]
 - **Deployment:** [Vercel / AWS / Heroku / etc.]
@@ -304,11 +334,13 @@ Create a file with this exact structure:
 ## Project Structure
 
 ### Frontend Structure
+
 \`\`\`
 [Paste actual directory tree from src/ or app/]
 \`\`\`
 
 **Key Directories:**
+
 - Components: `[path]` - [Description of organization]
 - Pages/Routes: `[path]` - [How routing works]
 - Hooks: `[path]` - [Reusable hooks location]
@@ -317,11 +349,13 @@ Create a file with this exact structure:
 - Styles: `[path]` - [Global styles, themes]
 
 ### Backend Structure
+
 \`\`\`
 [Paste actual directory tree from src/ or app/]
 \`\`\`
 
 **Key Directories:**
+
 - Routes: `[path]` - [API route definitions]
 - Controllers: `[path]` - [Request handlers]
 - Services: `[path]` - [Business logic]
@@ -330,6 +364,7 @@ Create a file with this exact structure:
 - Database: `[path]` - [Migrations, seeds, schema]
 
 ### Database
+
 - **Schema Location:** `[path to schema file]`
 - **Migrations:** `[how migrations are managed]`
 - **Seeding:** `[how seed data is loaded]`
@@ -339,12 +374,14 @@ Create a file with this exact structure:
 ## Code Patterns
 
 ### Component Pattern (Frontend)
+
 \`\`\`tsx
 // Example from actual codebase
 [Paste a real component showing the pattern]
 \`\`\`
 
 **Key Observations:**
+
 - File naming: [Convention found]
 - Component style: [Functional/Class, hooks used]
 - Props: [How props are typed]
@@ -352,12 +389,14 @@ Create a file with this exact structure:
 - Styling: [How components are styled]
 
 ### API Pattern (Backend)
+
 \`\`\`typescript
 // Example from actual codebase
 [Paste a real route/controller showing the pattern]
 \`\`\`
 
 **Key Observations:**
+
 - Route structure: [How routes are organized]
 - Validation: [How requests are validated]
 - Response format: [Standard response shape]
@@ -365,12 +404,14 @@ Create a file with this exact structure:
 - Authentication: [How auth is applied]
 
 ### Database Pattern
+
 \`\`\`prisma
 // Example model from schema
 [Paste a real model]
 \`\`\`
 
 **Key Observations:**
+
 - Naming: [Convention found]
 - Relationships: [How relations are defined]
 - Indexes: [Index strategy]
@@ -381,17 +422,20 @@ Create a file with this exact structure:
 ## Naming Conventions
 
 **Files:**
+
 - Components: `[PascalCase.tsx / kebab-case.vue / etc.]`
 - Utils: `[camelCase.ts / snake_case.py / etc.]`
 - Types: `[PascalCase.ts / etc.]`
 
 **Code:**
+
 - Variables: `[camelCase / snake_case]`
 - Functions: `[camelCase / snake_case]`
 - Classes: `[PascalCase]`
 - Constants: `[UPPER_CASE / camelCase]`
 
 **Database:**
+
 - Tables: `[PascalCase / snake_case]`
 - Columns: `[camelCase / snake_case]`
 - Relations: `[How named]`
@@ -401,7 +445,9 @@ Create a file with this exact structure:
 ## Existing Features
 
 ### Authentication
+
 [✓ Implemented / ✗ Not present]
+
 - Login/Logout
 - Registration
 - Password reset
@@ -409,13 +455,17 @@ Create a file with this exact structure:
 - Role-based access
 
 ### Core Features
+
 [List major features found in the codebase]
+
 - [Feature 1]
 - [Feature 2]
 - [Feature 3]
 
 ### Database Models
+
 [List key models/entities found]
+
 - User
 - [Other models]
 
@@ -424,22 +474,29 @@ Create a file with this exact structure:
 ## Development Commands
 
 \`\`\`bash
+
 # Development
+
 [command to start dev server]
 
 # Build
+
 [command to build for production]
 
 # Testing
+
 [command to run tests]
 
 # Linting
+
 [command to lint code]
 
 # Type Checking
+
 [command for type check]
 
 # Database
+
 [command to run migrations]
 [command to generate types/client]
 [command to seed database]
@@ -462,14 +519,17 @@ JWT_SECRET=
 ## Quality Standards
 
 **Linting:**
+
 - Config: `[.eslintrc.js / .eslintrc.json / etc.]`
 - Rules: [Strict / Recommended / Custom]
 
 **TypeScript:**
+
 - Strict mode: [Yes / No]
 - Target: [ES2020 / ES2022 / etc.]
 
 **Testing:**
+
 - Coverage threshold: [X% / none]
 - Required for: [All features / none]
 
@@ -478,15 +538,18 @@ JWT_SECRET=
 ## Important Patterns & Gotchas
 
 ### DO's (Patterns to follow)
+
 - [Pattern 1 discovered]
 - [Pattern 2 discovered]
 - [Pattern 3 discovered]
 
 ### DON'Ts (Things to avoid)
+
 - [Antipattern 1 found]
 - [Antipattern 2 found]
 
 ### Gotchas
+
 - [Gotcha 1]
 - [Gotcha 2]
 
@@ -495,10 +558,12 @@ JWT_SECRET=
 ## Integration Points
 
 **External Services:**
+
 - [Service 1]: [How it's used]
 - [Service 2]: [How it's used]
 
 **APIs Consumed:**
+
 - [API 1]: [Purpose]
 
 ---

@@ -1,10 +1,10 @@
 # GENERATE_PRD.md
 
-You are generating a Product Requirements Document (PRD) for a new feature. This PRD must integrate seamlessly with the existing codebase patterns documented in `CODEBASE_ANALYSIS.md`.
+You are generating a Product Requirements Document (PRD) for a new feature. This PRD must integrate seamlessly with the existing codebase patterns documented in `Ralph/CODEBASE_ANALYSIS.md`.
 
 ## Your Mission
 
-Generate `prd.json` - a structured list of user stories that break down the feature into implementable chunks.
+Generate `Ralph/prd.json` - a structured list of user stories that break down the feature into implementable chunks.
 
 ---
 
@@ -51,19 +51,19 @@ Feature: Export Reports to PDF
     "description": "Allow users to manage their profile information",
     "branch": "feature/user-profile-management"
   },
-  
+
   "techContext": {
     "frontend": "[From CODEBASE_ANALYSIS.md]",
     "backend": "[From CODEBASE_ANALYSIS.md]",
     "database": "[From CODEBASE_ANALYSIS.md]"
   },
-  
+
   "integrationPoints": [
     "Existing authentication system",
     "File upload service",
     "User model"
   ],
-  
+
   "stories": [
     {
       "id": "profile-001",
@@ -73,35 +73,32 @@ Feature: Export Reports to PDF
       "priority": 1,
       "estimatedComplexity": "small",
       "passes": false,
-      
+
       "acceptanceCriteria": [
         "Database schema updated with new fields",
         "Migration created and tested",
         "ORM types regenerated"
       ],
-      
+
       "technicalNotes": [
         "Follow existing model patterns from CODEBASE_ANALYSIS.md",
         "Use same naming convention as other models",
         "Add indexes for frequently queried fields"
       ],
-      
+
       "filesExpected": [
         "migrations/XXX_add_profile_fields.sql",
         "Update schema file"
       ]
     }
   ],
-  
+
   "assumptions": [
     "User authentication already exists",
     "File storage system is configured"
   ],
-  
-  "outOfScope": [
-    "Social media login integration",
-    "Public profile pages"
-  ]
+
+  "outOfScope": ["Social media login integration", "Public profile pages"]
 }
 ```
 
@@ -116,6 +113,7 @@ Use these templates as starting points. **Adapt to the actual tech stack** from 
 **When to use:** Creating or modifying database tables/models
 
 **Story structure:**
+
 ```json
 {
   "id": "[feature]-001",
@@ -140,6 +138,7 @@ Use these templates as starting points. **Adapt to the actual tech stack** from 
 ```
 
 **Adapt for:**
+
 - Prisma: "Update prisma/schema.prisma, run prisma migrate dev"
 - TypeORM: "Create migration file, define entity with decorators"
 - Sequelize: "Define model in models/, create migration"
@@ -153,6 +152,7 @@ Use these templates as starting points. **Adapt to the actual tech stack** from 
 **When to use:** Creating REST API endpoints
 
 **Story structure:**
+
 ```json
 {
   "id": "[feature]-002",
@@ -181,6 +181,7 @@ Use these templates as starting points. **Adapt to the actual tech stack** from 
 ```
 
 **Adapt for:**
+
 - Express: "Create router in routes/, controller in controllers/"
 - NestJS: "Use @Controller decorator, inject services"
 - FastAPI: "Define router with type hints, use Pydantic models"
@@ -194,6 +195,7 @@ Use these templates as starting points. **Adapt to the actual tech stack** from 
 **When to use:** Creating UI components
 
 **Story structure:**
+
 ```json
 {
   "id": "[feature]-003",
@@ -219,6 +221,7 @@ Use these templates as starting points. **Adapt to the actual tech stack** from 
 ```
 
 **Adapt for:**
+
 - React: "Functional component with hooks, TypeScript interface for props"
 - Vue: "SFC with Composition API, defineProps with TypeScript"
 - Angular: "Component with @Component decorator, template, styles"
@@ -231,6 +234,7 @@ Use these templates as starting points. **Adapt to the actual tech stack** from 
 **When to use:** Creating a complete page/route
 
 **Story structure:**
+
 ```json
 {
   "id": "[feature]-004",
@@ -264,6 +268,7 @@ Use these templates as starting points. **Adapt to the actual tech stack** from 
 **When to use:** Creating forms with validation
 
 **Story structure:**
+
 ```json
 {
   "id": "[feature]-005",
@@ -296,6 +301,7 @@ Use these templates as starting points. **Adapt to the actual tech stack** from 
 **When to use:** Integrating with external services or existing modules
 
 **Story structure:**
+
 ```json
 {
   "id": "[feature]-006",
@@ -327,6 +333,7 @@ Use these templates as starting points. **Adapt to the actual tech stack** from 
 **When to use:** Adding auth-protected features
 
 **Story structure:**
+
 ```json
 {
   "id": "[feature]-007",
@@ -357,6 +364,7 @@ Use these templates as starting points. **Adapt to the actual tech stack** from 
 **When to use:** Adding tests for features
 
 **Story structure:**
+
 ```json
 {
   "id": "[feature]-008",
@@ -387,6 +395,7 @@ Use these templates as starting points. **Adapt to the actual tech stack** from 
 **Complexity Estimation:**
 
 **Small (1-2 hours):**
+
 - Single file changes
 - Add a field to model
 - Create a simple component
@@ -394,6 +403,7 @@ Use these templates as starting points. **Adapt to the actual tech stack** from 
 - < 100 lines of code
 
 **Medium (3-6 hours):**
+
 - Multiple related files
 - CRUD API endpoints
 - Form with validation
@@ -401,6 +411,7 @@ Use these templates as starting points. **Adapt to the actual tech stack** from 
 - 100-300 lines of code
 
 **Large (1-2 days):**
+
 - Complex feature requiring multiple files
 - Integration with external service
 - Multi-step flow
@@ -424,6 +435,7 @@ Use these templates as starting points. **Adapt to the actual tech stack** from 
 7. **Documentation** - Document the feature
 
 **Example:**
+
 ```
 Priority 1: Create Post model
 Priority 2: Create Post API endpoints
@@ -439,6 +451,7 @@ Priority 7: Update API documentation
 ## Acceptance Criteria Rules
 
 **Good Acceptance Criteria:**
+
 - ✅ Specific and measurable
 - ✅ Testable (you can verify it's done)
 - ✅ Includes technical details
@@ -447,12 +460,14 @@ Priority 7: Update API documentation
 **Examples:**
 
 ✅ **GOOD:**
+
 - "POST /api/users endpoint created in src/routes/users.ts"
 - "Returns 201 with user object { id, email, name, createdAt }"
 - "Validates email format using Zod schema"
 - "Existing tests still pass"
 
 ❌ **BAD:**
+
 - "API works"
 - "Endpoint created"
 - "Validation added"
@@ -463,6 +478,7 @@ Priority 7: Update API documentation
 ## Technical Notes Guidelines
 
 **Include:**
+
 - Which files to create/modify
 - Which patterns to follow (reference CODEBASE_ANALYSIS.md)
 - Which existing code to reference
@@ -470,6 +486,7 @@ Priority 7: Update API documentation
 - Common gotchas for this type of work
 
 **Example:**
+
 ```json
 "technicalNotes": [
   "Follow user model pattern from src/models/user.model.ts",
@@ -491,6 +508,7 @@ Priority 7: Update API documentation
 **Feature:** "Create user profile API"
 
 **If React + Express + Prisma:**
+
 ```json
 {
   "id": "profile-001",
@@ -505,6 +523,7 @@ Priority 7: Update API documentation
 ```
 
 **If Vue + Django + PostgreSQL:**
+
 ```json
 {
   "id": "profile-001",
@@ -531,6 +550,7 @@ Priority 7: Update API documentation
 3. **Ask clarifying questions** in a `clarifications` section
 
 **Example:**
+
 ```json
 {
   "assumptions": [
@@ -538,7 +558,7 @@ Priority 7: Update API documentation
     "Profile picture uploads use existing file upload service",
     "Profile changes don't require approval"
   ],
-  
+
   "clarifications": [
     "Should profile changes be logged in audit trail?",
     "Is profile data public or private?",
@@ -556,7 +576,7 @@ Priority 7: Update API documentation
 ```json
 "acceptanceCriteria": [
   // ... feature criteria ...
-  
+
   // Quality criteria (adapt to project):
   "TypeScript compilation passes (if TS project)",
   "Linting passes with 0 errors",
@@ -567,6 +587,7 @@ Priority 7: Update API documentation
 ```
 
 **Check CODEBASE_ANALYSIS.md for:**
+
 - What linter is used
 - What test framework is used
 - What quality tools exist
@@ -582,19 +603,19 @@ Priority 7: Update API documentation
     "description": "Users can view and edit their profile information, upload profile pictures, and change passwords",
     "branch": "feature/user-profile"
   },
-  
+
   "techContext": {
     "frontend": "React 19 with TypeScript, Vite, TanStack Query",
     "backend": "Express with TypeScript, Prisma ORM",
     "database": "PostgreSQL"
   },
-  
+
   "integrationPoints": [
     "Existing User model (extends it)",
     "Existing authentication system (JWT)",
     "File upload service (AWS S3)"
   ],
-  
+
   "stories": [
     {
       "id": "profile-001",
@@ -622,7 +643,7 @@ Priority 7: Update API documentation
         "prisma/migrations/XXX_add_profile_fields/ (new)"
       ]
     },
-    
+
     {
       "id": "profile-002",
       "template": "api_crud",
@@ -658,7 +679,7 @@ Priority 7: Update API documentation
         "src/validators/profile.validator.ts"
       ]
     },
-    
+
     {
       "id": "profile-003",
       "template": "frontend_component",
@@ -694,7 +715,7 @@ Priority 7: Update API documentation
         "src/components/profile/AvatarUpload.tsx"
       ]
     },
-    
+
     {
       "id": "profile-004",
       "template": "frontend_page",
@@ -720,12 +741,9 @@ Priority 7: Update API documentation
         "Protected route: wrap with RequireAuth component",
         "Add route in src/App.tsx"
       ],
-      "filesExpected": [
-        "src/pages/Profile.tsx",
-        "src/App.tsx (modified)"
-      ]
+      "filesExpected": ["src/pages/Profile.tsx", "src/App.tsx (modified)"]
     },
-    
+
     {
       "id": "profile-005",
       "template": "testing",
@@ -756,19 +774,19 @@ Priority 7: Update API documentation
       ]
     }
   ],
-  
+
   "assumptions": [
     "Users can only edit their own profile",
     "Avatar upload uses existing S3 integration",
     "No profile approval workflow needed"
   ],
-  
+
   "outOfScope": [
     "Public profile pages",
     "Social media integration",
     "Profile visibility settings"
   ],
-  
+
   "clarifications": []
 }
 ```

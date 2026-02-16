@@ -12,11 +12,12 @@ Implement the next incomplete story, run quality checks, update progress, commit
 
 **BEFORE starting, verify these files exist:**
 
-- ✅ `CODEBASE_ANALYSIS.md` - Codebase patterns
-- ✅ `prd.json` - Feature requirements
-- ✅ `progress.txt` - Learning history
+- ✅ `Ralph/CODEBASE_ANALYSIS.md` - Codebase patterns
+- ✅ `Ralph/prd.json` - Feature requirements
+- ✅ `Ralph/progress.txt` - Learning history
 
 **If any are missing:**
+
 - Missing `CODEBASE_ANALYSIS.md`? → Run ANALYZE_CODEBASE.md first
 - Missing `prd.json`? → Run GENERATE_PRD.md first
 - Missing `progress.txt`? → Create it now (empty file is fine)
@@ -31,9 +32,9 @@ Implement the next incomplete story, run quality checks, update progress, commit
 
 ```typescript
 // Pseudo-code for what you should do
-const analysis = read('CODEBASE_ANALYSIS.md');
-const prd = read('prd.json');
-const progress = read('progress.txt');
+const analysis = read('Ralph/CODEBASE_ANALYSIS.md');
+const prd = read('Ralph/prd.json');
+const progress = read('Ralph/progress.txt');
 
 // Parse PRD
 const stories = prd.stories;
@@ -45,6 +46,7 @@ if (!nextStory) {
 ```
 
 **Output what you found:**
+
 ```
 📖 Context Loaded
 ✓ Codebase: [Tech stack from analysis]
@@ -84,6 +86,7 @@ Quality Checks to Run:
 ```
 
 **Stop and think:**
+
 - Is this story too large? Can it be completed in one go?
 - Are there dependencies that should be done first?
 - Do I have all the information I need?
@@ -134,16 +137,17 @@ router.post('/', authMiddleware, validateRequest(myrouteSchema), myrouteControll
 
 ```typescript
 // ❌ WRONG: Writing your own validation
-if (!email.includes('@')) throw new Error('Invalid email');
+if (!email.includes("@")) throw new Error("Invalid email");
 
 // ✅ RIGHT: Using existing utility from CODEBASE_ANALYSIS.md
-import { validateEmail } from '../utils/validation';
-if (!validateEmail(email)) throw new Error('Invalid email');
+import { validateEmail } from "../utils/validation";
+if (!validateEmail(email)) throw new Error("Invalid email");
 ```
 
 #### 3. Follow Naming Conventions
 
 **Check CODEBASE_ANALYSIS.md for:**
+
 - File naming: `PascalCase.tsx` vs `kebab-case.ts` vs `snake_case.py`
 - Variable naming: `camelCase` vs `snake_case`
 - Function naming: `getUserById` vs `get_user_by_id`
@@ -158,11 +162,11 @@ if (!validateEmail(email)) throw new Error('Invalid email');
 // Example from CODEBASE_ANALYSIS.md:
 // "Imports: 1) React, 2) External libs, 3) Internal components, 4) Utils, 5) Types"
 
-import React, { useState } from 'react';        // 1. Framework
-import { useQuery } from '@tanstack/react-query'; // 2. External
-import { Button } from '@/components/ui/button';  // 3. Internal
-import { formatDate } from '@/utils/date';        // 4. Utils
-import type { User } from '@/types/user';         // 5. Types
+import React, { useState } from "react"; // 1. Framework
+import { useQuery } from "@tanstack/react-query"; // 2. External
+import { Button } from "@/components/ui/button"; // 3. Internal
+import { formatDate } from "@/utils/date"; // 4. Utils
+import type { User } from "@/types/user"; // 5. Types
 ```
 
 #### 5. Error Handling
@@ -198,7 +202,7 @@ try {
 pnpm tsc --noEmit  # or npm/yarn
 → MUST pass with 0 errors
 
-# If .eslintrc* exists  
+# If .eslintrc* exists
 ✓ Linting
 pnpm lint  # or npm run lint
 → MUST pass with 0 errors
@@ -296,6 +300,7 @@ src/components/MyComponent.tsx:15:3 - error TS2322: Type 'string' is not assigna
 ```
 
 **Common fixes:**
+
 - Add missing type imports
 - Fix function return types
 - Add type assertions where needed
@@ -317,6 +322,7 @@ src/api/users.ts
 ```
 
 **Auto-fix when possible:**
+
 ```bash
 pnpm lint --fix
 ```
@@ -360,6 +366,7 @@ Error: Column 'email' already exists
 **If you've tried 3 times and can't fix it:**
 
 1. **Document the issue:**
+
 ```
 [YYYY-MM-DD - story-XXX]
 ⚠️ BLOCKED: Unable to complete story
@@ -382,6 +389,7 @@ Suggested next steps:
 2. **DO NOT mark story as complete**
 
 3. **Report to user:**
+
 ```
 ❌ Story [story-XXX] BLOCKED
 
@@ -416,6 +424,7 @@ See progress.txt for full details.
 ```
 
 **✅ Criteria for marking complete:**
+
 - All acceptance criteria met
 - All quality checks pass (type, lint, tests)
 - Code follows existing patterns
@@ -433,19 +442,23 @@ Story: [story.title]
 Status: ✅ Complete
 
 What was implemented:
+
 - [Brief description]
 
 Files created/modified:
+
 - [file1]
 - [file2]
 
 Learnings:
+
 - [Pattern discovered: e.g., "All API routes require authMiddleware"]
 - [Convention found: e.g., "Validation schemas in validators/ folder"]
 - [Gotcha: e.g., "Must regenerate Prisma client after schema changes"]
 - [Integration: e.g., "User profile links to existing auth system via userId"]
 
 Technical notes for next stories:
+
 - [Useful context for future work]
 
 Quality checks:
@@ -456,6 +469,7 @@ Quality checks:
 ```
 
 **Why document learnings?**
+
 - Next iteration uses this knowledge
 - Builds institutional memory
 - Prevents repeating mistakes
@@ -499,6 +513,7 @@ feat(story-XXX): [Concise title]
 ```
 
 **Commit type prefixes:**
+
 - `feat:` - New feature
 - `fix:` - Bug fix
 - `refactor:` - Code refactoring
@@ -605,6 +620,7 @@ Update progress.txt with split recommendation
 **Problem:** Story #003 needs Story #002, but #002 failed
 
 **Solution:**
+
 ```
 ⚠️ Story [story-003] SKIPPED
 
@@ -619,6 +635,7 @@ Next: Will attempt story-004 instead
 **Problem:** CODEBASE_ANALYSIS.md is outdated
 
 **Solution:**
+
 ```
 ⚠️ Pattern mismatch detected
 
@@ -636,6 +653,7 @@ Action:
 **Problem:** Can't test integration with external API
 
 **Solution:**
+
 ```
 ⚠️ Cannot fully test integration
 
@@ -653,17 +671,17 @@ Action:
 
 **Based on CODEBASE_ANALYSIS.md, run:**
 
-| If Project Has | Then Run |
-|----------------|----------|
-| `tsconfig.json` | `pnpm tsc --noEmit` |
-| `.eslintrc.*` | `pnpm lint` |
-| `prettier.*` | `pnpm format` |
-| `jest.config.*` | `pnpm test` |
-| `vitest.config.*` | `pnpm test` |
-| `pytest.ini` | `pytest` |
+| If Project Has         | Then Run               |
+| ---------------------- | ---------------------- |
+| `tsconfig.json`        | `pnpm tsc --noEmit`    |
+| `.eslintrc.*`          | `pnpm lint`            |
+| `prettier.*`           | `pnpm format`          |
+| `jest.config.*`        | `pnpm test`            |
+| `vitest.config.*`      | `pnpm test`            |
+| `pytest.ini`           | `pytest`               |
 | `prisma/schema.prisma` | `pnpm prisma generate` |
-| `.go` files | `go test ./...` |
-| `composer.json` | `composer test` |
+| `.go` files            | `go test ./...`        |
+| `composer.json`        | `composer test`        |
 
 **Dynamically adapt to the actual project!**
 
@@ -711,6 +729,7 @@ Action:
 - Do NOT auto-continue to next story
 
 **Why?**
+
 - User can review each story
 - Prevents cascading errors
 - Allows course correction
@@ -754,7 +773,7 @@ Pattern: Follow existing form pattern from src/components/forms/BaseForm.tsx
 Running: pnpm tsc --noEmit
 ✓ Type checking: 0 errors
 
-Running: pnpm lint  
+Running: pnpm lint
 ✓ Linting: Passed
 
 Running: pnpm test
