@@ -17,11 +17,10 @@ Ralph helps you implement features autonomously by:
 **1. Copy Ralph files to your project:**
 
 ```bash
-# Copy these 3 core files
+# Copy these 3 core files in Ralph folder
 ANALYZE_CODEBASE.md
 GENERATE_PRD.md
 EXECUTE_STORY.md
-RALPH_GUIDE.md (this file)
 ```
 
 **2. Analyze your codebase (ONE TIME):**
